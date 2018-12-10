@@ -27,18 +27,19 @@ const BasicDatePicker = ({id, label, onChange}) => (
   </div>
 )
 
-const SearchButton = () => (
+const SearchButton = ({onClick}) => (
   <div className="flex-grow flex-shrink w-full sm:w-auto my-1 sm:m-1">
     <button
       type="button"
       className="bg-blue-darker hover:bg-blue-darkest font-semibold text-white p-2 rounded w-full"
+      onClick={onClick}
     >
       Search
     </button>
   </div>
 )
 
-const BookingForm = () => (
+const BookingForm = ({handleSearchClick}) => (
   <div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
     <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
       <StyledSelect
@@ -56,7 +57,7 @@ const BookingForm = () => (
         icon="anchor"
       />
       <BasicDatePicker id="departure" label="Departure" onChange={null}/>
-      <SearchButton/>
+      <SearchButton onClick={handleSearchClick}/>
     </form>
   </div>
 )

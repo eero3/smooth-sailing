@@ -31,7 +31,7 @@ body {
 }
 
 .timetable-row {
-  @apply flex justify-between items-center rounded-t bg-white border-b px-3 py-1 mb-px ;
+  @apply flex justify-between items-center rounded-t border-b px-3 py-1 mb-px;
 }
 
 .timetable-date {

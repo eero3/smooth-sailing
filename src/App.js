@@ -4,9 +4,25 @@ import Main from './components/Main'
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCompass, faAnchor, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCompass,
+  faAnchor,
+  faCalendarAlt,
+  faCarSide,
+  faMale,
+  faFemale,
+  faBicycle
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCompass, faAnchor, faCalendarAlt )
+library.add(
+  faCompass,
+  faAnchor,
+  faCalendarAlt,
+  faCarSide,
+  faMale,
+  faFemale,
+  faBicycle
+)
 
 class App extends Component {
   render() {

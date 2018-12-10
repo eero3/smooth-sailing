@@ -29,3 +29,31 @@ body {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
 }
+
+.timetable-row {
+  @apply flex justify-between items-center rounded-t bg-white border-b px-3 py-1 mb-px ;
+}
+
+.timetable-date {
+  flex: 0 0 12.5%;
+  text-align: left;
+}
+
+.timetable-time {
+  flex: 0 0 10%;
+  text-align: right;
+}
+
+.timetable-vessel {
+  flex: 0 0 20%;
+  text-align: left;
+}
+
+.timetable-status {
+  flex: 0 0 15%;
+  text-align: center;
+}
+
+.timetable-status-item {
+  @apply rounded-full border-solid text-grey-darker border-2 mx-1 h-8 w-8 flex justify-center items-center
+}

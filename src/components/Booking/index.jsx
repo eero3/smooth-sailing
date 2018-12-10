@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CompassLoader from '../Loader'
 import BookingForm from './Form'
+import MapTest from '../MapTest'
 
 class Booking extends Component {
 
@@ -9,7 +10,7 @@ class Booking extends Component {
   }
 
   render() {
-    const { isLoading } = this.state
+    const { isLoading } = this.state
     if (isLoading) {
       return (
         <div className="flex justify-center items-center h-screen w-screen">
@@ -21,6 +22,9 @@ class Booking extends Component {
     return (
       <div>
         <BookingForm />
+        <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter">
+          <div className="text-grey-darker"><MapTest /></div>
+        </div>
       </div>
     )
 
@@ -28,3 +32,5 @@ class Booking extends Component {
 }
 
 export default Booking
+
+

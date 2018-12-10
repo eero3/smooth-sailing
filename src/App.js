@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Main from './components/Main'
-
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,6 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Main />
+       
       </div>
     );
   }

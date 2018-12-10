@@ -1,2 +1,8 @@
 @tailwind preflight;
 @tailwind utilities;
+
+body {
+  @apply font-sans;
+  @apply bg-blue-dark;
+  @apply text-white;
+}

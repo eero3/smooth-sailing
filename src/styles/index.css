@@ -31,7 +31,7 @@ body {
 }
 
 .timetable-row {
-  @apply flex justify-between items-center rounded-t border-b px-3 py-1 mb-px;
+  @apply flex justify-between items-center rounded-t border-b mb-px;
 }
 
 .timetable-date {
@@ -56,4 +56,19 @@ body {
 
 .timetable-status-item {
   @apply rounded-full border-solid text-grey-darker border-2 mx-1 h-8 w-8 flex justify-center items-center
+}
+
+.map-container {
+  max-height: 50em;
+  max-width: 80em;
+}
+
+.mock-map {
+  width: 100%;
+  height: 100%;
+ }
+
+.mock-map > img {
+  height: 100%;
+  width: 100%;
 }

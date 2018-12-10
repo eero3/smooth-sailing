@@ -76,7 +76,7 @@ const MOCK_TIMETABLES = [
 
 const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => (
   <li
-    className="timetable-row bg-white cursor-pointer rounded p-3 text-grey-darkest hover:bg-grey-lighter"
+    className="timetable-row bg-white cursor-pointer rounded text-grey-darkest hover:bg-grey-lighter px-3 py-1"
     key={id}
   >
     <div className="timetable-date">{date}</div>
@@ -98,7 +98,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
 )
 
 const TimetableHeader = () => (
-  <li className="timetable-row font-semibold bg-blue">
+  <li className="timetable-row font-semibold bg-blue py-2 px-3">
     <div className="timetable-date">Date</div>
     <div className="timetable-time">Departs</div>
     <div className="timetable-time">Arrives</div>

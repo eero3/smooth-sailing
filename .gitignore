@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.iml
 /.idea
+
+#tailwind generated css
+/src/index.css

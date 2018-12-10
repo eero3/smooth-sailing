@@ -1,0 +1,31 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans;
+  @apply bg-blue-dark;
+  @apply text-white;
+}
+
+.booking-form {
+  width: 97.5% !important;
+}
+
+.booking-form-input-icon {
+  top: 1.7em;
+  left: 0.5em;
+  pointer-events: none;
+  @apply text-grey-darker;
+}
+
+@media only screen and (max-width: 576px) {
+  .booking-form-input-icon {
+    top: 0.7em;
+  }
+}
+
+.booking-datepicker {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}

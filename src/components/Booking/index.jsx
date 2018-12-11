@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CompassLoader from '../Loader'
 import BookingForm from './Form'
 import Timetables from './Timetables'
-import mockMap from '../../mockmap.png'
+import MapTest from '../MapTest'
 
 const sleep = ms => (
   new Promise(resolve => setTimeout(resolve, ms))
@@ -54,8 +54,8 @@ class Booking extends Component {
         <div className="booking-form flex justify-center flex-col xl:flex-row sm:w-full ml-1 sm:ml-3 lg:ml-5 sm:mx-1">
           {this.renderTimetablesContainer()}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
-            <div className="mock-map" >
-              <img src={mockMap} />
+            <div className="text-grey-darker">
+              <MapTest />
             </div>
           </div>
         </div>
@@ -65,4 +65,3 @@ class Booking extends Component {
 }
 
 export default Booking
-

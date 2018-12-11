@@ -145,14 +145,20 @@ class VehicleInput extends Component {
   }
 
   render() {
-
+    const { units } = this.state;
+    const { passenger, car, bike } = units
+    let text = `${passenger} passenger`
+    if(car > 0){
+      text = `${text}, ${car} car`
+    }
     return (
       <div
         id="vehicleInput"
         className="vehicle-input flex-grow flex-shrink mb-1 sm:m-1 w-full sm:w-auto relative bg-white rounded cursor-pointer"
       >
-        <button type="button" className="w-full h-full" onClick={this.openModal}>test</button>
+        <button type="button" className="w-full h-full text-left pl-8" onClick={this.openModal}>{text}</button>
         {this.renderModal()}
+        <FontAwesomeIcon icon="user" className="vehicle-icon absolute text-grey-darker"/>
       </div>
     )
   }

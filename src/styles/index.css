@@ -9,7 +9,8 @@ body {
 }
 
 .segment-length {
-  width: 97.5% !important;
+  width: 96.5% !important;
+  max-width: 1800px;
 }
 
 .booking-form {
@@ -32,6 +33,12 @@ body {
   @apply font-semibold text-white rounded;
   width: 100%;
   padding: 0.6em;
+}
+
+.vehicle-icon {
+  left: 0.5em;
+  pointer-events: none;
+  top: 0.6em;
 }
 
 @media only screen and (max-width: 576px) {
@@ -129,3 +136,5 @@ body {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
 }
+
+

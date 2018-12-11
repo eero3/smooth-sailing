@@ -13,7 +13,7 @@ body {
 }
 
 .booking-form-input-icon {
-  top: 1.7em;
+  top: 1.6em;
   left: 0.5em;
   pointer-events: none;
   @apply text-grey-darker;

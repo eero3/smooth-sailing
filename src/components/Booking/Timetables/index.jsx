@@ -87,7 +87,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
       <div className="flex justify-center">
         {statusItems.map(item => (
           <div className={`timetable-status-item border-${item.color}`}>
-            {item.icons.map(i => <FontAwesomeIcon icon={i} />)}
+            {item.icons.map(i => <FontAwesomeIcon key={i} icon={i} />)}
           </div>
         ))}
       </div>

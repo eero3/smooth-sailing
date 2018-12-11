@@ -1,15 +1,36 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+const getHarborObj = (value, label) => ({value, label})
+
+const MOCK_HARBORS = [
+  getHarborObj(1, "Asterholma"),
+  getHarborObj(2, "Bergö"),
+  getHarborObj(3, "Dagerby"),
+  getHarborObj(4, "Enklinge"),
+  getHarborObj(5, "Gallby"),
+  getHarborObj(6, "Hummelvik"),
+  getHarborObj(7, "Husö"),
+  getHarborObj(8, "Jurmo"),
+  getHarborObj(9, "Kumlinge"),
+  getHarborObj(10, "Kyrkogårdsö"),
+  getHarborObj(11, "Kökar"),
+  getHarborObj(12, "Lappo"),
+  getHarborObj(13, "Långnäs"),
+  getHarborObj(14, "Osnäs"),
+  getHarborObj(15, "Snäckö"),
+  getHarborObj(16, "Sottunga"),
+  getHarborObj(17, "Torsholma"),
+  getHarborObj(18, "Åva"),
+  getHarborObj(19, "Överö")
+]
+
 const StyledSelect = ({id, label, placeholder, options, onChange, icon}) => (
   <div className="flex-grow flex-shrink mb-1 sm:m-1 w-full sm:w-auto relative">
     <label htmlFor={id} className="hidden sm:block text-sm font-bold sm:pr-1 text-grey-darker">{label}</label>
     <select id={id} className="rounded py-2 pl-8 px-1 bg-white w-full cursor-pointer" onChange={onChange}>
       <option className="text-grey-darker">{placeholder}</option>
-      <option>testOption</option>
-      <option>testOption</option>
-      <option>testOption</option>
-      <option>testOption</option>
+      {options.map(h => <option key={h.value}>{h.label}</option>)}
     </select>
     <FontAwesomeIcon icon={icon} className="booking-form-input-icon absolute z-10" />
   </div>
@@ -46,14 +67,14 @@ const BookingForm = ({handleSearchClick}) => (
         id="From"
         label="From"
         placeholder="Departure harbor"
-        options={[]}
+        options={MOCK_HARBORS}
         icon="anchor"
       />
       <StyledSelect
         id="To"
         label="To"
         placeholder="Arrival harbor"
-        options={[]}
+        options={MOCK_HARBORS}
         icon="anchor"
       />
       <BasicDatePicker id="departure" label="Departure" onChange={null}/>

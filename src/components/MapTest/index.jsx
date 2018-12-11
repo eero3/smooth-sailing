@@ -7,7 +7,6 @@ import {
 import 'leaflet/dist/leaflet.css';
 
 
-
 class MapTest extends Component {
   constructor(props) {
     super(props)
@@ -15,7 +14,7 @@ class MapTest extends Component {
       isLoaded: props.loaded ,
       lat: 60.10,
       lng: 21.00,
-      zoom: 8,
+      zoom: 9,
       sodrajson: {"type":"GeometryCollection", "geometries": [
         {"type":"LineString","coordinates":[[20.8073747,60.0647341],[20.8078372,60.0634645],[20.8071828,60.0625543],[20.8017325,60.0611621],[20.7828927,60.0585919],[20.7815196,60.0542655],[20.7885268,60.0486064],[20.7910243,60.0369224],[20.8011559,60.0251313],[20.8041143,60.0253854],[20.8098636,60.0262196],[20.8235536,60.0255121],[20.823618,60.0306361],[20.8250786,60.0312659]]},
         {"type":"LineString","coordinates":[[20.8917824,59.9455971],[20.890304,59.9458556],[20.8904756,59.946221],[20.8924225,59.9465493],[20.8940318,59.9471027],[20.8953407,59.9476287],[20.8956583,59.9484142],[20.8948687,59.9493722],[20.8921864,59.9520702],[20.889942,59.9544151],[20.8889893,59.9558783],[20.8884099,59.9580634],[20.8881814,59.9612704],[20.8884528,59.9628746],[20.889633,59.9636839],[20.8915331,59.9641436],[20.901748,59.9645738],[20.9151901,59.9650936],[20.9269211,59.9653546],[20.9399633,59.9655577],[20.9485504,59.965891],[20.9570476,59.9664576],[20.9621996,59.966747],[20.9646136,59.9670654],[20.9678408,59.9676819],[20.9744198,59.9687579],[20.9769003,59.9690774],[20.9798596,59.9691349],[20.9916631,59.9687654],[20.9975704,59.9687198],[21.001377,59.9689652],[21.0167772,59.9704724],[21.0300305,59.9716766],[21.037883,59.9723499],[21.0443525,59.9724729],[21.0515333,59.9724299],[21.053516,59.9727826],[21.0546149,59.9733263],[21.0638607,59.9806079],[21.0683464,59.983613],[21.0712895,59.9852532],[21.0771815,59.9880561],[21.1244003,60.0290056],[21.1278614,60.0311162],[21.206846,60.0715985],[21.2203558,60.0781262],[21.2325513,60.0840671],[21.248917,60.0920378],[21.2640779,60.0992513],[21.2721632,60.1032297],[21.2826753,60.1083063],[21.2904913,60.1121275],[21.2993522,60.1161867],[21.3081992,60.1202512],[21.3181019,60.1246011],[21.3270884,60.1284578],[21.3397699,60.1339505],[21.3541691,60.1400914],[21.3708417,60.147187],[21.3813194,60.1516114],[21.3886708,60.1548936],[21.3979202,60.1586559],[21.4116445,60.1643305],[21.4210161,60.1683479],[21.4354357,60.1742678],[21.4408248,60.1763707],[21.4453277,60.1775739],[21.4580918,60.1796713],[21.4660118,60.1810019],[21.4702561,60.1817573],[21.4746271,60.1827699],[21.4810064,60.1851555],[21.4892397,60.1882589],[21.4937673,60.1898195],[21.4979043,60.1906302],[21.5104163,60.191347],[21.5184844,60.1916745],[21.527443,60.1930142],[21.5420342,60.1956049],[21.5460189,60.196088],[21.5485938,60.1956486],[21.5540441,60.193779],[21.5617602,60.19101],[21.5655168,60.1900032],[21.5711523,60.189235],[21.5789049,60.1883047],[21.581512,60.1876711],[21.5834108,60.1864102],[21.5841271,60.1858236],[21.584739,60.1853635],[21.5854149,60.1850835],[21.5865524,60.1846737]]},
@@ -69,16 +68,16 @@ class MapTest extends Component {
 static getDerivedStateFromProps(props, state) {
   if(props.loaded !== state.isLoaded ){
     return {
-      isLoaded: props.loaded
+      isLoaded: props.loaded,
+      zoom: props.zoom,
+      position: props.position
     }
   }
   return null
 } 
 
-
-
-
   render() {
+    const isLoaded = this.state.isLoaded
     const position = [this.state.lat, this.state.lng];
     console.log("state:", this.state)
     return (
@@ -89,40 +88,45 @@ static getDerivedStateFromProps(props, state) {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
+          <GeoJSON data={this.state.sodrajson} style={this.state.sodrastyle}></GeoJSON>
+          <GeoJSON data={this.state.tvarjson} style={this.state.tvarstyle}></GeoJSON>
+          <GeoJSON data={this.state.norrajson} style={this.state.norrastyle}></GeoJSON>
 
-          <CircleMarker center={[60.21916, 20.72675]} color="black" radius={5}>
+          {isLoaded ?  <GeoJSON data={this.state.highlightjson} style={this.state.highlightstyle}></GeoJSON>: null}
+
+          <CircleMarker center={[60.21916, 20.72675]} color="black" opacity="1" fillColor="blue" fillOpacity= "0.8" radius={5}>
             <Popup>Snäckö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.11003, 20.68214]} color="black" radius={5}>
+          <CircleMarker center={[60.11003, 20.68214]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Sottunga</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.11145, 20.51089]} color="black" radius={5}>
+          <CircleMarker center={[60.11145, 20.51089]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Överö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.11763, 20.29668]} color="black" radius={5}>
+          <CircleMarker center={[60.11763, 20.29668]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Långnäs</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.1626921, 20.3927480]} color="black" radius={5}>
+          <CircleMarker center={[60.1626921, 20.3927480]} color="black" opacity="1" fillColor="blue" fillOpacity= "0.8" radius={5}>
             <Popup>Bergö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.1854808, 21.5858297]} color="black" radius={5}>
+          <CircleMarker center={[60.1854808, 21.5858297]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Galtby</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[59.9455971, 20.8917824]} color="black" radius={5}>
+          <CircleMarker center={[59.9455971, 20.8917824]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8"  radius={5}>
             <Popup>Kökar</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.0313030, 20.8251714]} color="black" radius={5}>
+          <CircleMarker center={[60.0313030, 20.8251714]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Kyrkogårdsö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.0647341, 20.8073747]} color="black" radius={5}>
+          <CircleMarker center={[60.0647341, 20.8073747]} color="black" opacity="1" fillColor="red" fillOpacity= "0.8" radius={5}>
             <Popup>Husö</Popup>
           </CircleMarker>
 
@@ -134,31 +138,26 @@ static getDerivedStateFromProps(props, state) {
             <Popup>Svinö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.2242177, 20.4136621]} color="black" radius={5}>
+          <CircleMarker center={[60.2242177, 20.4136621]} color="black" opacity="1" fillColor="yellow" fillOpacity= "0.8" radius={5}>
             <Popup>Hummelvik</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.3183138, 20.7513513]} color="black" radius={5}>
+          <CircleMarker center={[60.3183138, 20.7513513]} color="black" opacity="1" fillColor="yellow" fillOpacity= "0.8" radius={5}>
             <Popup>Enklinge</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.2904026, 20.7901287]} color="black" radius={5}>
+          <CircleMarker center={[60.2904026, 20.7901287]} color="black" opacity="1" fillColor="yellow" fillOpacity= "0.8" radius={5}>
             <Popup>Kumlinge</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.3174626, 20.9959478]} color="black" radius={5}>
+          <CircleMarker center={[60.3174626, 20.9959478]} color="black" opacity="1" fillColor="yellow" fillOpacity= "0.8" radius={5}>
             <Popup>Lappo</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.3568842, 21.0388434]} color="black" radius={5}>
+          <CircleMarker center={[60.3568842, 21.0388434]} color="black" opacity="1" fillColor="yellow" fillOpacity= "0.8" radius={5}>
             <Popup>Torsholma</Popup>
           </CircleMarker>
 
-          <GeoJSON data={this.state.sodrajson} style={this.state.sodrastyle}></GeoJSON>
-          <GeoJSON data={this.state.tvarjson} style={this.state.tvarstyle}></GeoJSON>
-          <GeoJSON data={this.state.norrajson} style={this.state.norrastyle}></GeoJSON>
-
-        
         </Map>
       </div>
     )

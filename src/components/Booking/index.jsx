@@ -62,7 +62,7 @@ class Booking extends Component {
   }
 
   render() {
-    const { fakeReservationStatus } = this.state
+    const { fakeReservationStatus, isLoaded } = this.state
 
     return (
       <div>
@@ -71,8 +71,7 @@ class Booking extends Component {
           {this.renderTimetablesContainer(fakeReservationStatus)}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
             <div className="text-grey-darker">
-          console.Log("isLoaded:", isLoaded)
-              <MapTest loaded={isLoaded}/>
+              <MapTest loaded={isLoaded} zoom={10} position={[60.11145, 20.51089]}/>
             </div>
           </div>
         </div>

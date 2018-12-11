@@ -75,9 +75,11 @@ const getMockTimetables = (status) => [
     ])
 ]
 
-const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onClick}) => (
+const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onClick}) => {
+  const isShiftFull = statusItems.some(it => it.color === "red" && it.icons[0] === "car-side")
+  return (
   <li
-    className="timetable-row bg-white cursor-pointer rounded text-grey-darkest hover:bg-grey-lighter px-3 py-1"
+    className={`timetable-row ${isShiftFull ? 'bg-grey' : 'bg-white hover:bg-grey-lighter cursor-pointer'} rounded text-grey-darkest px-3 py-1`}
     key={id}
     onClick={onClick}
   >
@@ -110,7 +112,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onCl
       </div>
     </div>
   </li>
-)
+)}
 
 const TimetableHeader = () => (
   <li className="timetable-row font-semibold bg-blue py-2 px-3">

@@ -1,6 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import VehicleInput from './vehicleInput'
+
 const getHarborObj = (value, label) => ({value, label})
 
 const MOCK_HARBORS = [
@@ -75,21 +77,22 @@ const DepartureSelect = ({onIconClick, onChange}) => (
   </div>
 )
 
-const BookingForm = ({handleSearchClick}) => (
-<div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
-  <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
-    <DepartureSelect />
-    <StyledSelect
-      id="To"
-      label="To"
-      placeholder="Arrival harbor"
-      options={MOCK_HARBORS}
-      icon="anchor"
-    />
-    <BasicDatePicker id="departure" label="Departure" onChange={null}/>
-    <SearchButton onClick={handleSearchClick}/>
-  </form>
-</div>
+const BookingForm = ({handleSearchClick, handleVehiclesSave}) => (
+  <div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
+    <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
+      <DepartureSelect />
+      <StyledSelect
+        id="To"
+        label="To"
+        placeholder="Arrival harbor"
+        options={MOCK_HARBORS}
+        icon="anchor"
+      />
+      <BasicDatePicker id="departure" label="Departure" onChange={null}/>
+      <VehicleInput handleSelectClick={handleVehiclesSave} />
+      <SearchButton onClick={handleSearchClick}/>
+    </form>
+  </div>
 )
 
 export default BookingForm

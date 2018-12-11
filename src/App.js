@@ -15,7 +15,10 @@ import {
   faArrowRight,
   faUser,
   faCaretDown,
-  faTrash
+  faTrash,
+  faTimes,
+  faPlus,
+  faMinus
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -30,7 +33,10 @@ library.add(
   faArrowRight,
   faUser,
   faCaretDown,
-  faTrash
+  faTrash,
+  faTimes,
+  faPlus,
+  faMinus
 )
 
 class App extends Component {

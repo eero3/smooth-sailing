@@ -120,3 +120,12 @@ body {
   flex: 0 0 7% !important;
   text-align: center;
 }
+
+.vehicle-modal {
+  z-index: 2000;
+}
+
+.vehicle-input {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}

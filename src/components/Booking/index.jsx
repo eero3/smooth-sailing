@@ -25,6 +25,10 @@ class Booking extends Component {
     clearInterval(this.poller)
   }
 
+  handleVehiclesSave = (units) => {
+    console.log(units)
+  }
+
   checkReservationStatus = () => {
     reservationStatus()
       .then(res => res.json())
@@ -66,7 +70,7 @@ class Booking extends Component {
 
     return (
       <div>
-        <BookingForm handleSearchClick={this.handleSearchClick}/>
+        <BookingForm handleSearchClick={this.handleSearchClick} handleVehiclesSave={this.handleVehiclesSave}/>
         <div className="booking-form flex justify-center flex-col xl:flex-row sm:w-full ml-1 sm:ml-3 lg:ml-5 sm:mx-1">
           {this.renderTimetablesContainer(fakeReservationStatus)}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">

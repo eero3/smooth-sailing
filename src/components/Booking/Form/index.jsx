@@ -79,7 +79,7 @@ const DepartureSelect = ({onIconClick, onChange, startPoint}) => (
   </div>
 )
 
-const BookingForm = ({handleSearchClick, handleVehiclesSave startPoint, startChange, endPoint, endChange}) => (
+const BookingForm = ({handleSearchClick, handleVehiclesSave, startPoint, startChange, endPoint, endChange}) => (
 <div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
   <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
     <DepartureSelect startPoint={startPoint} onChange={startChange} />

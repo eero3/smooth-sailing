@@ -11,7 +11,8 @@ import {
   faCarSide,
   faMale,
   faFemale,
-  faBicycle
+  faBicycle,
+  faExchangeAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -21,7 +22,8 @@ library.add(
   faCarSide,
   faMale,
   faFemale,
-  faBicycle
+  faBicycle,
+  faExchangeAlt
 )
 
 class App extends Component {

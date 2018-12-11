@@ -49,10 +49,10 @@ const BasicDatePicker = ({id, label, onChange}) => (
 )
 
 const SearchButton = ({onClick}) => (
-  <div className="flex-grow flex-shrink w-full sm:w-auto my-1 sm:m-1">
+  <div className="flex-grow flex-shrink w-full sm:w-auto flex justify-center m-2 sm:m-1">
     <button
       type="button"
-      className="bg-blue-darker hover:bg-blue-darkest font-semibold text-white p-2 rounded w-full"
+      className="booking-search-btn bg-green-dark hover:bg-green-darker font-semibold text-white rounded;"
       onClick={onClick}
     >
       Search
@@ -60,27 +60,36 @@ const SearchButton = ({onClick}) => (
   </div>
 )
 
-const BookingForm = ({handleSearchClick}) => (
-  <div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
-    <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
-      <StyledSelect
-        id="From"
-        label="From"
-        placeholder="Departure harbor"
-        options={MOCK_HARBORS}
-        icon="anchor"
-      />
-      <StyledSelect
-        id="To"
-        label="To"
-        placeholder="Arrival harbor"
-        options={MOCK_HARBORS}
-        icon="anchor"
-      />
-      <BasicDatePicker id="departure" label="Departure" onChange={null}/>
-      <SearchButton onClick={handleSearchClick}/>
-    </form>
+const DepartureSelect = ({onIconClick, onChange}) => (
+  <div className="flex-grow flex-shrink w-full sm:w-auto relative mr-6 sm:mr-5">
+    <StyledSelect
+      id="From"
+      label="From"
+      placeholder="Departure harbor"
+      options={MOCK_HARBORS}
+      icon="anchor"
+    />
+    <FontAwesomeIcon
+      icon="exchange-alt"
+      className="absolute z-10 text-grey-darker hover:text-black cursor-pointer booking-exchange-icon"/>
   </div>
+)
+
+const BookingForm = ({handleSearchClick}) => (
+<div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
+  <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
+    <DepartureSelect />
+    <StyledSelect
+      id="To"
+      label="To"
+      placeholder="Arrival harbor"
+      options={MOCK_HARBORS}
+      icon="anchor"
+    />
+    <BasicDatePicker id="departure" label="Departure" onChange={null}/>
+    <SearchButton onClick={handleSearchClick}/>
+  </form>
+</div>
 )
 
 export default BookingForm

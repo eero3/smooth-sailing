@@ -13,15 +13,36 @@ body {
 }
 
 .booking-form-input-icon {
-  top: 1.7em;
+  top: 1.6em;
   left: 0.5em;
   pointer-events: none;
   @apply text-grey-darker;
 }
 
+.booking-exchange-icon {
+  top: 1.9em;
+  right: -1.1em;
+}
+
+.booking-search-btn {
+  @apply font-semibold text-white rounded;
+  width: 100%
+  padding: 0.6em;
+}
+
 @media only screen and (max-width: 576px) {
   .booking-form-input-icon {
     top: 0.7em;
+  }
+
+  .booking-exchange-icon {
+    top: 0.7em;
+    right: -1.3em;
+    transform: rotate(90deg);
+  }
+
+  .booking-search-btn {
+    width: 75%
   }
 }
 
@@ -30,10 +51,46 @@ body {
   padding-bottom: 0.375rem;
 }
 
-.map-container {
-  height: 50em;
+.timetable-row {
+  @apply flex justify-between items-center rounded-t border-b mb-px;
 }
 
-.map-container > div {
+.timetable-date {
+  flex: 0 0 12.5%;
+  text-align: left;
+}
+
+.timetable-time {
+  flex: 0 0 10%;
+  text-align: right;
+}
+
+.timetable-vessel {
+  flex: 0 0 20%;
+  text-align: left;
+}
+
+.timetable-status {
+  flex: 0 0 15%;
+  text-align: center;
+}
+
+.timetable-status-item {
+  @apply rounded-full border-solid text-grey-darker border-2 mx-1 h-8 w-8 flex justify-center items-center
+}
+
+.map-container {
+  max-height: 50em;
+  max-width: 80em;
+}
+
+.mock-map {
+  width: 100%;
   height: 100%;
+ }
+
+.mock-map > img {
+  height: 100%;
+  width: 100%;
+
 }

@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import { makeReservation } from '../../../api'
 
-const FROM = 'Långnäs'
-const TO = 'Kökar'
+const FROM = 'Överö'
+const TO = 'Snäckö'
 const DATE = '12.12.2018'
 const TIME = '4:30'
 

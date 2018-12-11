@@ -80,16 +80,25 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
     key={id}
   >
     <div className="timetable-date">{date}</div>
-    <div className="timetable-time">{startTime}</div>
-    <div className="timetable-time">{endTime}</div>
+    <div className="timetable-time flex">
+      {startTime}
+      <FontAwesomeIcon icon="arrow-right" className="hidden sm:block ml-1 pt-1 text-grey-darker"/>
+    </div>
+    <div className="timetable-time flex">
+      <FontAwesomeIcon icon="anchor" className="hidden sm:block mr-1 pt-1 text-grey-darker" />
+      {endTime}
+    </div>
     <div className="timetable-vessel">{shipName}</div>
     <div className="timetable-status">
-      <div className="flex justify-center">
+      <div className="justify-center hidden sm:flex">
         {statusItems.map(item => (
           <div className={`timetable-status-item border-${item.color}`}>
             {item.icons.map(i => <FontAwesomeIcon key={i} icon={i} />)}
           </div>
         ))}
+      </div>
+      <div className="justify-center flex sm:hidden">
+          <div className="timetable-status-item border-green bg-green" />
       </div>
 
     </div>

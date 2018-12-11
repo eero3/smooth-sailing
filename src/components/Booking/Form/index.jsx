@@ -49,7 +49,7 @@ const BasicDatePicker = ({id, label, onChange}) => (
 )
 
 const SearchButton = ({onClick}) => (
-  <div className="flex-grow flex-shrink w-full sm:w-auto flex justify-center m-2 sm:m-1">
+  <div className="flex-grow flex-shrink w-full sm:w-auto flex justify-center mt-3 mb-2 sm:m-1">
     <button
       type="button"
       className="booking-search-btn bg-green-dark hover:bg-green-darker font-semibold text-white rounded;"

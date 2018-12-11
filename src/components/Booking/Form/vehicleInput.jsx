@@ -146,7 +146,7 @@ class VehicleInput extends Component {
 
   render() {
     const { units } = this.state;
-    const { passenger, car, bike } = units
+    const { passenger, car } = units
     let text = `${passenger} passenger`
     if(car > 0){
       text = `${text}, ${car} car`

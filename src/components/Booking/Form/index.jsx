@@ -42,6 +42,7 @@ const BasicDatePicker = ({id, label, onChange}) => (
   <div className="flex-grow flex-shrink mb-1 sm:m-1 w-full sm:w-auto relative">
     <label htmlFor={id} className="hidden sm:block text-sm font-bold sm:pr-1 text-grey-darker">{label}</label>
     <input
+      value={'2018-12-12'}
       type="date"
       onChange={onChange}
       className="rounded py-1 pl-8 bg-white w-full booking-datepicker"

@@ -8,6 +8,10 @@ body {
   @apply text-white;
 }
 
+select {
+  -webkit-appearance: none;
+}
+
 .segment-length {
   width: 97.5% !important;
 }

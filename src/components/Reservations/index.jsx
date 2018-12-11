@@ -11,12 +11,12 @@ const Units = ({passenger, car, bike}) => (
       : null}
     {car > 0
       ? <div>
-        {`${car} x`} <FontAwesomeIcon icon="male"/>
+        {`${car} x`} <FontAwesomeIcon icon="car-side"/>
       </div>
       : null}
     {bike > 0
       ? <div>
-        {`${bike} x`} <FontAwesomeIcon icon="male"/>
+        {`${bike} x`} <FontAwesomeIcon icon="bicycle"/>
       </div>
       : null}
   </div>

@@ -13,31 +13,31 @@ const getStatusItem = (color, icons) => (
 
 
 const getMockTimetables = (status) => [
-  getMockStatus(1, "10.12.2018", "4:30", "5:05", "M/S Doppingen",
+  getMockStatus(1, "12.12.2018", "4:30", "5:05", "M/S Doppingen",
     [
       getStatusItem("green", ["male", "female"]),
       getStatusItem("green", ["bicycle"]),
       getStatusItem(status ? "red" : "yellow-dark", ["car-side"])
     ]),
-  getMockStatus(2, "10.12.2018", "5:05", "5:50", "M/S Doppingen",
+  getMockStatus(2, "12.12.2018", "5:05", "5:50", "M/S Doppingen",
     [
       getStatusItem("yellow-dark", ["male", "female"]),
       getStatusItem("red", ["bicycle"]),
       getStatusItem("red", ["car-side"])
     ]),
-  getMockStatus(3, "10.12.2018", "5:50", "6:20", "M/S Doppingen",
+  getMockStatus(3, "12.12.2018", "5:50", "6:20", "M/S Doppingen",
     [
       getStatusItem("green", ["male", "female"]),
       getStatusItem("green", ["bicycle"]),
       getStatusItem("green", ["car-side"])
     ]),
-  getMockStatus(4, "10.12.2018", "6:20", "7:50", "M/S Doppingen",
+  getMockStatus(4, "12.12.2018", "6:20", "7:50", "M/S Doppingen",
     [
       getStatusItem("green", ["male", "female"]),
       getStatusItem("green", ["bicycle"]),
       getStatusItem("yellow-dark", ["car-side"])
     ]),
-  getMockStatus(5, "10.12.2018", "7:50", "8:20", "M/S Skiftet",
+  getMockStatus(5, "12.12.2018", "7:50", "8:20", "M/S Skiftet",
     [
       getStatusItem("green", ["male", "female"]),
       getStatusItem("green", ["bicycle"]),

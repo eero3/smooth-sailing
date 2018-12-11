@@ -130,11 +130,11 @@ static getDerivedStateFromProps(props, state) {
             <Popup>Husö</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.0317802, 20.3858259]} color="black" radius={5}>
+          <CircleMarker center={[60.0317802, 20.3858259]} color="black" opacity="1" fillColor="black" fillOpacity= "0.5" radius={5}>
             <Popup>Degerby</Popup>
           </CircleMarker>
 
-          <CircleMarker center={[60.0665811, 20.2675505]} color="black" radius={5}>
+          <CircleMarker center={[60.0665811, 20.2675505]} color="black" opacity="1" fillColor="black" fillOpacity= "0.5" radius={5}>
             <Popup>Svinö</Popup>
           </CircleMarker>
 

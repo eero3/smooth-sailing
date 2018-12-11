@@ -4,6 +4,7 @@ import Header from '../Header'
 import Booking from '../Booking'
 import Bus from '../Bus';
 import Navigation from '../Navigation'
+import ConfirmBooking from '../Booking/Confirm'
 import Reservations from '../Reservations'
 import { makeReservation, cancelReservation} from '../../api'
 
@@ -47,6 +48,7 @@ class Main extends Component {
             render={(props) => <Reservations {...props} reservations={reservations} handleRemoveClick={this.handleRemoveReservationClick}/> }
           />
           <Route exact path="/bus" component={Bus} />
+          <Route exact path="/confirm" component={ConfirmBooking} />
         </div>
       </BrowserRouter>
     )

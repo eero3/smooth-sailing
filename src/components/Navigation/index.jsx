@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 
-const Navigation = () => {
+const Navigation = ({reservations}) => {
+  const reservationAmount = reservations.length
+  const reservationText = reservationAmount > 0
+    ? `My reservations (${reservationAmount})`
+    : 'My reservations'
 
   return (
     <nav>
@@ -15,6 +19,16 @@ const Navigation = () => {
               activeClassName="font-semibold text-white"
             >
               Booking
+            </NavLink>
+          </div>
+          <div className="mr-2 sm:mr-6">
+            <NavLink
+              exact
+              to="/reservations"
+              className="no-underline cursor-pointer text-grey-light hover:text-white"
+              activeClassName="font-semibold text-white"
+            >
+              {reservationText}
             </NavLink>
           </div>
         </div>

@@ -8,12 +8,12 @@ body {
   @apply text-white;
 }
 
-select {
-  -webkit-appearance: none;
+.segment-length {
+  width: 97.5% !important;
 }
 
 .booking-form {
-  width: 97.5% !important;
+  @apply segment-length
 }
 
 .booking-form-input-icon {
@@ -90,4 +90,33 @@ select {
 .map-container > div {
   height: 100%;
   width: 100%;
+}
+
+.reservation-row {
+  @apply timetable-row;
+}
+
+.reservation-date {
+  flex: 0 0 15% !important;
+  text-align: left;
+}
+
+.reservation-units {
+  flex: 0 0 10% !important;
+  text-align: center;
+}
+
+.reservation-harbor {
+  flex: 0 0 20% !important;
+  text-align: center;
+}
+
+.reservation-vessel {
+  flex: 0 0 15% !important;
+  text-align: center;
+}
+
+.reservation-controls {
+  flex: 0 0 7% !important;
+  text-align: center;
 }

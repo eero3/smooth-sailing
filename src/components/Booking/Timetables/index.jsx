@@ -102,9 +102,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onCl
       <div className="justify-center flex sm:hidden">
           <div className="timetable-status-item border-green bg-green" />
       </div>
-
     </div>
-
   </li>
 )
 
@@ -124,9 +122,7 @@ const Timetables = ({ reservationStatus, history }) => (
       <TimetableHeader/>
       {getMockTimetables(reservationStatus).map(t => <TimetableRow key={t.id} {...t} onClick={() => history.push('/confirm')} />)}
     </ul>
-
   </div>
-
 )
 
 export default withRouter(Timetables)

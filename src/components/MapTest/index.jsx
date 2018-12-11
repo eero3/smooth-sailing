@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component , Fragment} from 'react';
+
 import {
   Map, TileLayer, Popup,
   CircleMarker, GeoJSON
@@ -56,11 +57,17 @@ class MapTest extends Component {
         weight: 4,
         opacity: 0.4
       },
-      highlightstyle: {
+      highlightstyleyellow: {
         color: "yellow",
         linejoin: "round",
+        weight: 7,
+        opacity: 0.9
+      },
+      highlightstylewhite: {
+        color: "white ",
+        linejoin: "round",
         weight: 4,
-        opacity: 0.7
+        opacity: 0.9
       }
     }
   }
@@ -92,7 +99,19 @@ static getDerivedStateFromProps(props, state) {
           <GeoJSON data={this.state.tvarjson} style={this.state.tvarstyle}></GeoJSON>
           <GeoJSON data={this.state.norrajson} style={this.state.norrastyle}></GeoJSON>
 
-          {isLoaded ?  <GeoJSON data={this.state.highlightjson} style={this.state.highlightstyle}></GeoJSON>: null}
+          {isLoaded ? 
+          <Fragment>
+            <GeoJSON data={this.state.highlightjson} style={this.state.highlightstyleyellow}></GeoJSON>
+            <GeoJSON data={this.state.highlightjson} style={this.state.highlightstylewhite}></GeoJSON>
+            <CircleMarker center={[60.11763, 20.29668]} color="orange" opacity="1" fillColor="white" fillOpacity= "0.9" radius={5}>
+            <Popup>Långnäs</Popup>
+          </CircleMarker>
+          <CircleMarker center={[60.0647341, 20.8073747]} color="orange" opacity="1" fillColor="white" fillOpacity= "0.9" radius={5}>
+            <Popup>Husö</Popup>
+          </CircleMarker>
+            
+            </Fragment>
+          : null}
 
           <CircleMarker center={[60.21916, 20.72675]} color="black" opacity="1" fillColor="blue" fillOpacity= "0.8" radius={5}>
             <Popup>Snäckö</Popup>

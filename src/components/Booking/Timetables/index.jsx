@@ -80,11 +80,11 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
     key={id}
   >
     <div className="timetable-date">{date}</div>
-    <div className="timetable-time flex">
+    <div className="timetable-time flex justify-end">
       {startTime}
       <FontAwesomeIcon icon="arrow-right" className="hidden sm:block ml-1 pt-1 text-grey-darker"/>
     </div>
-    <div className="timetable-time flex">
+    <div className="timetable-time flex justify-end">
       <FontAwesomeIcon icon="anchor" className="hidden sm:block mr-1 pt-1 text-grey-darker" />
       {endTime}
     </div>

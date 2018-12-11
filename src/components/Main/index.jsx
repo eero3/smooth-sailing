@@ -9,7 +9,8 @@ class Main extends Component {
   state = {
     user: {
       firstName: "Anton",
-      lastName: "Manninen"}
+      lastName: "Manninen"
+    }
   }
 
   render () {

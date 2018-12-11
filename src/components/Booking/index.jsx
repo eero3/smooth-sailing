@@ -64,11 +64,17 @@ class Booking extends Component {
   }
 
   startClick = () => {
-    this.setState({ startPoint: 'Långnäs' })
+    this.setState({
+      startPoint: 'Långnäs',
+      startHigh: true
+    })
   }
 
   endClick = () => {
-    this.setState({ endPoint: 'Husö' })
+    this.setState({
+      endPoint: 'Husö',
+      endHigh: true
+    })
   }
 
   startChange = (e) => {
@@ -97,7 +103,15 @@ class Booking extends Component {
           {this.renderTimetablesContainer(fakeReservationStatus)}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
             <div className="text-grey-darker">
-              <MapTest loaded={isLoaded} zoom={10} position={[60.11145, 20.51089]} startClick={this.startClick} endClick={this.endClick} />
+              <MapTest
+                loaded={isLoaded}
+                zoom={10}
+                position={[60.11145, 20.51089]}
+                startClick={this.startClick}
+                endClick={this.endClick}
+                startHigh={this.state.startHigh}
+                endHigh={this.state.endHigh}
+              />
             </div>
           </div>
         </div>

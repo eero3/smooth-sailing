@@ -18,7 +18,8 @@ import {
   faTrash,
   faTimes,
   faPlus,
-  faMinus
+  faMinus,
+  faPlusCircle
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -36,7 +37,8 @@ library.add(
   faTrash,
   faTimes,
   faPlus,
-  faMinus
+  faMinus,
+  faPlusCircle
 )
 
 class App extends Component {

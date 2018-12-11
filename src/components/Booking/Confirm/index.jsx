@@ -10,7 +10,7 @@ const DATE = '12.12.2018'
 const TIME = '4:30'
 
 const Confirm = ({ history, handleConfirmClick }) => (
-  <div className="bg-blue-lighter text-black rounded p-8">
+  <div className="bg-blue-lighter text-black rounded p-8 text-grey-darker">
     <h2>{FROM} - {TO}</h2>
     <div className="pt-2 font-semibold">
       {DATE} {TIME}
@@ -19,6 +19,13 @@ const Confirm = ({ history, handleConfirmClick }) => (
       <div className="mb-2">Persons: 1</div>
       <div className="text-2xl mb-4">
         <FontAwesomeIcon icon="car-side" />
+      </div>
+      <div className="mb-4 flex">
+        <FontAwesomeIcon
+          icon="plus-circle"
+          className="cursor-pointer text-blue-dark hover:text-blue-darker mr-2 text-2xl"
+        />
+        <div className="mt-1">Add another destination</div>
       </div>
       <button
         type="button"

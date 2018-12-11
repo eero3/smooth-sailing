@@ -26,7 +26,7 @@ body {
 
 .booking-search-btn {
   @apply font-semibold text-white rounded;
-  width: 100%
+  width: 100%;
   padding: 0.6em;
 }
 
@@ -80,16 +80,9 @@ body {
 }
 
 .map-container {
-  max-height: 50em;
-  max-width: 80em;
+  height: 50em;
 }
 
-.mock-map {
-  width: 100%;
+.map-container > div {
   height: 100%;
- }
-
-.mock-map > img {
-  height: 100%;
-  width: 100%;
 }

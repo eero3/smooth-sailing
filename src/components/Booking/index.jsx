@@ -55,7 +55,8 @@ class Booking extends Component {
           {this.renderTimetablesContainer()}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
             <div className="text-grey-darker">
-              <MapTest />
+          console.Log("isLoaded:", isLoaded)
+              <MapTest loaded={isLoaded}/>
             </div>
           </div>
         </div>

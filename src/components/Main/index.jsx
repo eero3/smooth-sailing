@@ -6,7 +6,7 @@ import Bus from '../Bus';
 import Navigation from '../Navigation'
 import ConfirmBooking from '../Booking/Confirm'
 import Reservations from '../Reservations'
-import { makeReservation, cancelReservation} from '../../api'
+import { cancelReservation} from '../../api'
 
 const getReservation =(id, date, units, startTime, endTime, departureHarbor, destinationHarbor, shipName) =>
   ({id, date, units, startTime, endTime, departureHarbor, destinationHarbor, shipName})

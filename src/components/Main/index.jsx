@@ -7,7 +7,9 @@ import Navigation from '../Navigation'
 
 class Main extends Component {
   state = {
-    user: {name: "Anton Manninen"}
+    user: {
+      firstName: "Anton",
+      lastName: "Manninen"}
   }
 
   render () {

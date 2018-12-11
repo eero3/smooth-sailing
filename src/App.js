@@ -12,7 +12,9 @@ import {
   faFemale,
   faBicycle,
   faExchangeAlt,
-  faArrowRight
+  faArrowRight,
+  faUser,
+  faCaretDown
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -24,7 +26,9 @@ library.add(
   faFemale,
   faBicycle,
   faExchangeAlt,
-  faArrowRight
+  faArrowRight,
+  faUser,
+  faCaretDown
 )
 
 class App extends Component {
@@ -32,7 +36,6 @@ class App extends Component {
     return (
       <div className="App">
         <Main />
-       
       </div>
     );
   }

@@ -19,7 +19,7 @@ const Navigation = () => {
           </div>
         </div>
         <div className="flex justify-end">
-          <div className="ml-2 sm:ml-6">
+          <div className="ml-2 sm:ml-6 lg:mr-2">
             <NavLink
               to="/bus"
               className="no-underline cursor-pointer text-grey-light hover:text-white"

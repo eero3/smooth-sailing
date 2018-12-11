@@ -13,7 +13,9 @@ const sleep = ms => (
 class Booking extends Component {
 
   state = {
-    fakeReservationStatus: false
+    fakeReservationStatus: false,
+    startPoint: null,
+    endPoint: null
   }
 
   componentDidMount() {
@@ -61,17 +63,41 @@ class Booking extends Component {
       </div>)
   }
 
+  startClick = () => {
+    this.setState({ startPoint: 'Långnäs' })
+  }
+
+  endClick = () => {
+    this.setState({ endPoint: 'Husö' })
+  }
+
+  startChange = (e) => {
+    const value = e.target.value
+    this.setState({ startPoint: value })
+  }
+
+  endChange = (e) => {
+    const value = e.target.value
+    this.setState({ endPoint: value })
+  }
+
   render() {
     const { fakeReservationStatus, isLoaded } = this.state
 
     return (
       <div>
-        <BookingForm handleSearchClick={this.handleSearchClick}/>
+        <BookingForm
+          handleSearchClick={this.handleSearchClick}
+          startPoint={this.state.startPoint}
+          endPoint={this.state.endPoint}
+          startChange={this.startChange}
+          endChange={this.endChange}
+        />
         <div className="booking-form flex justify-center flex-col xl:flex-row sm:w-full ml-1 sm:ml-3 lg:ml-5 sm:mx-1">
           {this.renderTimetablesContainer(fakeReservationStatus)}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
             <div className="text-grey-darker">
-              <MapTest loaded={isLoaded} zoom={10} position={[60.11145, 20.51089]}/>
+              <MapTest loaded={isLoaded} zoom={10} position={[60.11145, 20.51089]} startClick={this.startClick} endClick={this.endClick} />
             </div>
           </div>
         </div>

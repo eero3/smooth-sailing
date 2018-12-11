@@ -25,10 +25,10 @@ const MOCK_HARBORS = [
   getHarborObj(19, "Överö")
 ]
 
-const StyledSelect = ({id, label, placeholder, options, onChange, icon}) => (
+const StyledSelect = ({id, label, placeholder, options, onChange, icon, value}) => (
   <div className="flex-grow flex-shrink mb-1 sm:m-1 w-full sm:w-auto relative">
     <label htmlFor={id} className="hidden sm:block text-sm font-bold sm:pr-1 text-grey-darker">{label}</label>
-    <select id={id} className="rounded py-2 pl-8 px-1 bg-white w-full cursor-pointer" onChange={onChange}>
+    <select id={id} className="rounded py-2 pl-8 px-1 bg-white w-full cursor-pointer" onChange={onChange} value={value} >
       <option className="text-grey-darker">{placeholder}</option>
       {options.map(h => <option key={h.value}>{h.label}</option>)}
     </select>
@@ -60,7 +60,7 @@ const SearchButton = ({onClick}) => (
   </div>
 )
 
-const DepartureSelect = ({onIconClick, onChange}) => (
+const DepartureSelect = ({onIconClick, onChange, startPoint}) => (
   <div className="flex-grow flex-shrink w-full sm:w-auto relative mr-6 sm:mr-5">
     <StyledSelect
       id="From"
@@ -68,6 +68,8 @@ const DepartureSelect = ({onIconClick, onChange}) => (
       placeholder="Departure harbor"
       options={MOCK_HARBORS}
       icon="anchor"
+      value={startPoint}
+      onChange={onChange}
     />
     <FontAwesomeIcon
       icon="exchange-alt"
@@ -75,16 +77,18 @@ const DepartureSelect = ({onIconClick, onChange}) => (
   </div>
 )
 
-const BookingForm = ({handleSearchClick}) => (
+const BookingForm = ({handleSearchClick, startPoint, startChange, endPoint, endChange}) => (
 <div className="sm:w-full -ml-1 lg:ml-3 sm:mx-1 booking-form">
   <form className="w-full flex flex-wrap items-center sm:items-end bg-blue-lighter rounded p-1 pb-0 sm:p-2 ml-2 mb-1">
-    <DepartureSelect />
+    <DepartureSelect startPoint={startPoint} onChange={startChange} />
     <StyledSelect
       id="To"
       label="To"
       placeholder="Arrival harbor"
       options={MOCK_HARBORS}
       icon="anchor"
+      value={endPoint}
+      onChange={endChange}
     />
     <BasicDatePicker id="departure" label="Departure" onChange={null}/>
     <SearchButton onClick={handleSearchClick}/>

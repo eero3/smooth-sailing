@@ -8,6 +8,10 @@ body {
   @apply text-white;
 }
 
+select {
+  -webkit-appearance: none;
+}
+
 .booking-form {
   width: 97.5% !important;
 }

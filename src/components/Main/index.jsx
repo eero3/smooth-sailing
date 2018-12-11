@@ -4,6 +4,7 @@ import Header from '../Header'
 import Booking from '../Booking'
 import Bus from '../Bus';
 import Navigation from '../Navigation'
+import ConfirmBooking from '../Booking/Confirm'
 
 class Main extends Component {
   state = {
@@ -23,6 +24,7 @@ class Main extends Component {
           <Navigation/>
           <Route exact path="/" component={Booking} />
           <Route exact path="/bus" component={Bus} />
+          <Route exact path="/confirm" component={ConfirmBooking} />
         </div>
       </BrowserRouter>
     )

@@ -95,12 +95,18 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onCl
       <div className="justify-center hidden sm:flex">
         {statusItems.map(item => (
           <div className={`timetable-status-item border-${item.color}`}>
-            {item.icons.map(i => <FontAwesomeIcon key={i} icon={i} />)}
+            {item.icons.map(i => <FontAwesomeIcon key={i} icon={i} className={`text-${item.color}`}/>)}
           </div>
         ))}
       </div>
       <div className="justify-center flex sm:hidden">
-          <div className="timetable-status-item border-green bg-green" />
+        {statusItems.map(item => (
+            <div className="mr-1">
+              {item.icons.filter(f => f !== "bicycle")
+                .map(i => <FontAwesomeIcon key={i} icon={i} className={`text-${item.color}`}/>)}
+            </div>
+          ))}
+
       </div>
     </div>
   </li>

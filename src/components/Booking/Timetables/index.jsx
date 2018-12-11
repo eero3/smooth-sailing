@@ -100,9 +100,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
       <div className="justify-center flex sm:hidden">
           <div className="timetable-status-item border-green bg-green" />
       </div>
-
     </div>
-
   </li>
 )
 
@@ -122,9 +120,7 @@ const Timetables = () => (
       <TimetableHeader/>
       {MOCK_TIMETABLES.map(t => <TimetableRow key={t.id} {...t} />)}
     </ul>
-
   </div>
-
 )
 
 export default Timetables

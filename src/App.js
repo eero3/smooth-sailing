@@ -14,7 +14,8 @@ import {
   faExchangeAlt,
   faArrowRight,
   faUser,
-  faCaretDown
+  faCaretDown,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -28,7 +29,8 @@ library.add(
   faExchangeAlt,
   faArrowRight,
   faUser,
-  faCaretDown
+  faCaretDown,
+  faTrash
 )
 
 class App extends Component {

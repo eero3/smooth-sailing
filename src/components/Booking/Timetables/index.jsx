@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { withRouter } from 'react-router-dom'
 
 
 const getMockStatus = (id, date, startTime, endTime, shipName, statusItems) => ({
@@ -74,10 +75,11 @@ const getMockTimetables = (status) => [
     ])
 ]
 
-const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => (
+const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems, onClick}) => (
   <li
     className="timetable-row bg-white cursor-pointer rounded text-grey-darkest hover:bg-grey-lighter px-3 py-1"
     key={id}
+    onClick={onClick}
   >
     <div className="timetable-date">{date}</div>
     <div className="timetable-time flex justify-end">
@@ -114,13 +116,13 @@ const TimetableHeader = () => (
   </li>
 )
 
-const Timetables = ({ reservationStatus }) => (
+const Timetables = ({ reservationStatus, history }) => (
   <div className="bg-blue-lighter p-1 sm:p-2 rounded">
     <ul className="list-reset">
       <TimetableHeader/>
-      {getMockTimetables(reservationStatus).map(t => <TimetableRow key={t.id} {...t} />)}
+      {getMockTimetables(reservationStatus).map(t => <TimetableRow key={t.id} {...t} onClick={() => history.push('/confirm')} />)}
     </ul>
   </div>
 )
 
-export default Timetables
+export default withRouter(Timetables)

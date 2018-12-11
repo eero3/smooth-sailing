@@ -5,6 +5,7 @@ import Booking from '../Booking'
 import Bus from '../Bus';
 import Navigation from '../Navigation'
 import Reservations from '../Reservations'
+import { makeReservation, cancelReservation} from '../../api'
 
 const getReservation =(id, date, units, startTime, endTime, departureHarbor, destinationHarbor, shipName) =>
   ({id, date, units, startTime, endTime, departureHarbor, destinationHarbor, shipName})
@@ -27,7 +28,8 @@ class Main extends Component {
   handleRemoveReservationClick = id => {
     const { reservations } = this.state
     const newReservations = reservations.filter(r => r.id !== id)
-    this.setState({reservations: newReservations})
+    cancelReservation()
+      .then(() => this.setState({reservations: newReservations}))
   }
 
   render () {

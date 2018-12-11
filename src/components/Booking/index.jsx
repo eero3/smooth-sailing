@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CompassLoader from '../Loader'
 import BookingForm from './Form'
+import MapTest from '../MapTest'
 import Timetables from './Timetables'
 import mockMap from '../../mockmap.png'
 
@@ -14,6 +15,7 @@ class Booking extends Component {
     isLoaded: false,
     isLoading: false
   }
+
 
   handleSearchClick = () => {
     this.setState({isLoading: true},
@@ -34,6 +36,7 @@ class Booking extends Component {
 
     if (!isLoading && !isLoaded) {
       return null;
+
     }
 
     return (
@@ -50,14 +53,19 @@ class Booking extends Component {
 
     return (
       <div>
+
+        
+
         <BookingForm handleSearchClick={this.handleSearchClick}/>
         <div className="booking-form flex justify-center flex-col xl:flex-row sm:w-full ml-1 sm:ml-3 lg:ml-5 sm:mx-1">
           {this.renderTimetablesContainer()}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
-            <div className="mock-map" >
+            
+                <div className="text-grey-darker"><MapTest /></div>
               <img src={mockMap} />
             </div>
           </div>
+
         </div>
       </div>
     )

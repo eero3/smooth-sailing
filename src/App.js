@@ -3,7 +3,6 @@ import Main from './components/Main'
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCompass,
   faAnchor,
@@ -15,7 +14,8 @@ import {
   faExchangeAlt,
   faArrowRight,
   faUser,
-  faCaretDown
+  faCaretDown,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -29,7 +29,8 @@ library.add(
   faExchangeAlt,
   faArrowRight,
   faUser,
-  faCaretDown
+  faCaretDown,
+  faTrash
 )
 
 class App extends Component {

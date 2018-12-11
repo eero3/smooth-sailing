@@ -11,12 +11,12 @@ const getStatusItem = (color, icons) => (
 )
 
 
-const MOCK_TIMETABLES = [
+const getMockTimetables = (status) => [
   getMockStatus(1, "10.12.2018", "4:30", "5:05", "M/S Doppingen",
     [
       getStatusItem("green", ["male", "female"]),
       getStatusItem("green", ["bicycle"]),
-      getStatusItem("yellow-dark", ["car-side"])
+      getStatusItem(status ? "red" : "yellow-dark", ["car-side"])
     ]),
   getMockStatus(2, "10.12.2018", "5:05", "5:50", "M/S Doppingen",
     [
@@ -100,9 +100,7 @@ const TimetableRow = ({id, date, startTime, endTime, shipName, statusItems}) => 
       <div className="justify-center flex sm:hidden">
           <div className="timetable-status-item border-green bg-green" />
       </div>
-
     </div>
-
   </li>
 )
 
@@ -116,15 +114,13 @@ const TimetableHeader = () => (
   </li>
 )
 
-const Timetables = () => (
+const Timetables = ({ reservationStatus }) => (
   <div className="bg-blue-lighter p-1 sm:p-2 rounded">
     <ul className="list-reset">
       <TimetableHeader/>
-      {MOCK_TIMETABLES.map(t => <TimetableRow key={t.id} {...t} />)}
+      {getMockTimetables(reservationStatus).map(t => <TimetableRow key={t.id} {...t} />)}
     </ul>
-
   </div>
-
 )
 
 export default Timetables

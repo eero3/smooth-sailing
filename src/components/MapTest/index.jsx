@@ -83,7 +83,7 @@ static getDerivedStateFromProps(props, state) {
     console.log("state:", this.state)
     return (
       <div className="map-container">
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'

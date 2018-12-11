@@ -4,6 +4,8 @@ import BookingForm from './Form'
 import Timetables from './Timetables'
 import MapTest from '../MapTest'
 
+import { reservationStatus } from '../../api'
+
 const sleep = ms => (
   new Promise(resolve => setTimeout(resolve, ms))
 )
@@ -11,8 +13,22 @@ const sleep = ms => (
 class Booking extends Component {
 
   state = {
-    isLoaded: false,
-    isLoading: false
+    fakeReservationStatus: false
+  }
+
+  componentDidMount() {
+    this.checkReservationStatus()
+    this.poller = setInterval(this.checkReservationStatus, 5000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.poller)
+  }
+
+  checkReservationStatus = () => {
+    reservationStatus()
+      .then(res => res.json())
+      .then(status => this.setState({ fakeReservationStatus: status.value }))
   }
 
   handleSearchClick = () => {
@@ -29,7 +45,7 @@ class Booking extends Component {
     </div>
   )
 
-  renderTimetablesContainer = () => {
+  renderTimetablesContainer = (fakeReservationStatus) => {
     const { isLoading, isLoaded } = this.state
 
     if (!isLoading && !isLoaded) {
@@ -40,19 +56,19 @@ class Booking extends Component {
       <div className="flex-1 mb-1 xl:mr-1">
         {isLoading
           ? this.renderLoader()
-          : isLoaded ? <Timetables /> : null
+          : isLoaded ? <Timetables reservationStatus={fakeReservationStatus} /> : null
         }
       </div>)
   }
 
   render() {
-    const { isLoading, isLoaded } = this.state
+    const { fakeReservationStatus } = this.state
 
     return (
       <div>
         <BookingForm handleSearchClick={this.handleSearchClick}/>
         <div className="booking-form flex justify-center flex-col xl:flex-row sm:w-full ml-1 sm:ml-3 lg:ml-5 sm:mx-1">
-          {this.renderTimetablesContainer()}
+          {this.renderTimetablesContainer(fakeReservationStatus)}
           <div className="hidden sm:block flex-1 p-2 rounded bg-blue-lighter map-container">
             <div className="text-grey-darker">
           console.Log("isLoaded:", isLoaded)

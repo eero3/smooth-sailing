@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/smooth-sailing/precache-manifest.6c9acddfd08dd8349f7b8108efb1d7cf.js"
+  "/smooth-sailing/precache-manifest.fe6ea1f857c960395f5f3a4de7c7050c.js"
 );
 
 workbox.clientsClaim();
